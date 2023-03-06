@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.dashboard')
+@extends('sidebar.user_activity_log')
 @endsection
 @section('content')
 <div id="main">
@@ -18,6 +18,25 @@
         <section class="row">
             <div class="col-12 col-lg-8">
                 <div class="row">
+                    @if (Auth::user()->role_name=='Normal User')
+                    <div class="col-6 col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon purple">
+                                            <i class="iconly-boldShow"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Related Ideas </h6>
+                                        <h6 class="font-extrabold mb-0">{{  $spec_ideas->count()}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
                     <div class="col-6 col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body px-3 py-4-5">
@@ -35,7 +54,45 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col-6 col-lg-3 col-md-6">
+                    @endif
+                  
+                
+                    @if (Auth::user()->role_name=='Normal User')
+                    <div class="col-6 col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon purple">
+                                            <i class="iconly-boldShow"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Posted Ideas </h6>
+                                        <h6 class="font-extrabold mb-0">{{  $ideas }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="stats-icon purple">
+                                            <i class="iconly-boldShow"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Activity Log</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $user_activity_logs }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        {{-- <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body px-3 py-4-5">
                                 <div class="row">
@@ -52,6 +109,7 @@
                             </div>
                         </div>
                     </div> --}}
+                    @else
                     <div class="col-6 col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body px-3 py-4-5">
@@ -74,6 +132,24 @@
                             <div class="card-body px-3 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4">
+                                        <div class="stats-icon purple">
+                                            <i class="iconly-boldShow"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h6 class="text-muted font-semibold">Posted Ideas </h6>
+                                        <h6 class="font-extrabold mb-0">{{  $ideas }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    {{-- <div class="col-6 col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-3 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4">
                                         <div class="stats-icon red">
                                             <i class="iconly-boldBookmark"></i>
                                         </div>
@@ -85,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 {{-- <div class="row">
                     <div class="col-12">
@@ -382,7 +458,7 @@
             </div>
             <div class="float-end">
                 <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                href="#">Group 5</a></p>
+                href="#">Group 9</a></p>
             </div>
         </div>
     </footer>

@@ -41,6 +41,12 @@ Auth::routes();
 
 // ----------------------------- home dashboard ------------------------------//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('Group/new_ideas', [App\Http\Controllers\FormController::class, 'ideas'])->middleware('auth')->name('ideas');
+Route::get('/my_topics', [App\Http\Controllers\FormController::class, 'related'])->middleware('auth')->name('related');
+Route::get('/reading_mode/{id}', [App\Http\Controllers\FormController::class, 'read'])->middleware('auth')->name('read');
+
+Route::get('/add_Admin', [App\Http\Controllers\Auth\RegisterController::class, 'newadmin'])->name('newadmin');
+Route::post('/new_admin', [App\Http\Controllers\Auth\RegisterController::class, 'storeAdmin'])->name('storeAdmin');
 
 // -----------------------------login----------------------------------------//
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
@@ -68,7 +74,8 @@ Route::get('profile_user', [App\Http\Controllers\UserManagementController::class
 Route::post('profile_user/store', [App\Http\Controllers\UserManagementController::class, 'profileStore'])->name('profile_user/store');
 
 // ----------------------------- user userManagement -----------------------//
-Route::get('userManagement/new_ideas', [App\Http\Controllers\UserManagementController::class, 'ideas'])->middleware('auth')->name('ideas');
+
+//Route::get('userManagement/new_ideas', [App\Http\Controllers\UserManagementController::class, 'ideas'])->middleware('auth')->name('ideas');
 Route::get('userManagement', [App\Http\Controllers\UserManagementController::class, 'index'])->middleware('auth')->name('userManagement');
 Route::get('user/add/new', [App\Http\Controllers\UserManagementController::class, 'addNewUser'])->middleware('auth')->name('user/add/new');
 Route::post('user/add/save', [App\Http\Controllers\UserManagementController::class, 'addNewUserSave'])->name('user/add/save');

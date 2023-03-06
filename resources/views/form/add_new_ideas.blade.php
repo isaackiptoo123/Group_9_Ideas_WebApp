@@ -47,7 +47,7 @@
                                     <label>Target Audience</label>
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select class="form-select" name="target_group" aria-label="Default select example">
                                                 <option selected disabled>Select the target group</option>
                                                 <option value="Real Estate">Real Estate</option>
                                                 <option value="Equities">Equities</option>
@@ -59,12 +59,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <input type="text" class="form-control @error('department') is-invalid @enderror" 
+                                placeholder="Enter Idea title" name="posted_by" value="{{ Auth::user()->name }}" hidden>
                                 <div class="col-md-8">
                                     <label>Title</label>
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <input type="text" class="form-control @error('department') is-invalid @enderror" value="{{ old('department') }}"
-                                                placeholder="Enter Idea title" name="department">
+                                            <input type="text" class="form-control @error('department') is-invalid @enderror" 
+                                                placeholder="Enter Idea title" name="title">
                                             <div class="form-control-icon">
                                                 <i class="bi bi-card-heading"></i>
                                             </div>
@@ -79,7 +81,7 @@
                                     <label>Descriptions</label>
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
-                                            <textarea  class="form-control @error('salary') is-invalid @enderror" value="{{ old('salary') }}"
+                                            <textarea  class="form-control @error('salary') is-invalid @enderror" name="description"
                                                 placeholder="Enter idea description" name="desc"> </textarea>
                                             {{-- <div class="form-control-icon">
                                                 <i class="bi bi-envelope-fill"></i>

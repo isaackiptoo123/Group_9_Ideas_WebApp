@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.change_password')
+
+@extends('sidebar.user_activity_log')
 @endsection
 @section('content')
 <div id="main">

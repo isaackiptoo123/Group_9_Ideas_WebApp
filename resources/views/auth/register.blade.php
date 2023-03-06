@@ -53,9 +53,9 @@
 
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label>Date of Birth</label>
-                            <input type="date" class="form-control form-control-lg @error('birth_date') is-invalid @enderror" name="birth_date" >
+                            <input type="date" class="form-control form-control-lg @error('birth_date') is-invalid @enderror" name="birth_date" required max="@php echo Date("Y-m-d") @endphp" >
                             <div class="form-control-icon">
-                                <i class="bi bi-phone"></i>
+                                <i class="bi bi-calendar-date"></i>
                             </div>
                             @error('birth_date')
                                 <span class="invalid-feedback" role="alert">
@@ -68,7 +68,7 @@
                             <fieldset class="form-group">
                                 <select class="form-select @error('role_name') is-invalid @enderror" name="investment" id="investment">
                                     <option selected disabled>Select Investment Idea</option>
-                                    <option value="Real_Estate">Real Estate</option>
+                                    <option value="Real Estate">Real Estate</option>
                                     <option value="Equities">Equities</option>
                                     <option value="Crypto">Crypto</option>
                                 </select>
@@ -85,10 +85,10 @@
                         {{-- <div class="form-group position-relative mb-4">
                             <fieldset class="form-group"> --}}
                                 <select class="form-select @error('role_name') is-invalid @enderror" name="role_name" id="role_name" hidden>
-                                    <option selected disabled>Select Role Name</option>
+                                    {{-- <option selected disabled>Select Role Name</option> --}}
                                     <option value="Admin">Admin</option>
-                                    <option value="Super Admin" selected>Super Admin</option>
-                                    <option value="Normal User">Normal User</option>
+                                    <option value="Super Admin">Super Admin</option>
+                                    <option value="Normal User" selected>Normal User</option>
                                 </select>
                                 {{-- <div class="form-control-icon">
                                     <i class="bi bi-exclude"></i>

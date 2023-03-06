@@ -73,7 +73,17 @@
                             </li> --}}
                         </ul>
                     </li>
+                    
+                    @else
+                    <li class="sidebar-item">
+                        <a href="{{ route('related') }}" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-medical-fill"></i>
+                            <span>My Suggestions</span>
+                        </a>
+                      
+                    </li>
                 @endif
+
                 
                 {{-- <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item  has-sub">

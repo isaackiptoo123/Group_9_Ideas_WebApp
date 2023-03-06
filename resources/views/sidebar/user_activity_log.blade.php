@@ -19,6 +19,12 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+
+             
+
+              
+
+                @if (Auth::user()->role_name=='Super Admin')
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
@@ -27,7 +33,7 @@
                             <hr>
                             <span>Role Name:</span>
                             <span class="badge bg-success">Admin</span>
-                            @endif
+                            @endif   
                             @if (Auth::user()->role_name=='Super Admin')
                                 <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
                                 <hr>
@@ -43,15 +49,6 @@
                         </div>
                     </div>
                 </li>
-
-                <li class="sidebar-item">
-                    <a href="{{ route('change/password') }}" class='sidebar-link'>
-                        <i class="bi bi-shield-lock"></i>
-                        <span>Change Password</span>
-                    </a>
-                </li>
-
-                @if (Auth::user()->role_name=='Super Admin')
                     {{-- <li class="sidebar-title">Page &amp; Controller</li> --}}
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link active'>
@@ -73,8 +70,29 @@
                             </li> --}}
                         </ul>
                     </li>
+                    <li class="sidebar-item">
+                        <a href="/add_Admin" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>Add Admins</span>
+                        </a>
+                      
+                    </li>
+                    @else
+                    <li class="sidebar-item">
+                        <a href="{{ route('related') }}" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-medical-fill"></i>
+                            <span>My Suggestions</span>
+                        </a>
+                      
+                    </li>
                 @endif
                 
+                <li class="sidebar-item">
+                    <a href="{{ route('change/password') }}" class='sidebar-link'>
+                        <i class="bi bi-shield-lock"></i>
+                        <span>Change Password</span>
+                    </a>
+                </li>
                 {{-- <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

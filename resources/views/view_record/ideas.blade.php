@@ -3,6 +3,23 @@
 @extends('sidebar.user_activity_log')
 @endsection
 @section('content')
+<style>
+    .bg-col{
+        background-color: rgb(22, 4, 86);
+    }
+    .bg-col p{
+        color: whitesmoke;
+    }
+    .bg-col h5{
+        color: rgb(35, 159, 236);
+    }
+    .bg-col .sign{
+        float: right;
+        font-size: 10px;
+        font-style: italic;
+    }
+</style>
+
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -18,7 +35,7 @@
                 </div>
                     
                 
-                <div class="col-12 col-md-6 order-md-2 order-first float-right pb-5 ml-5">
+                {{--<div class="col-12 col-md-6 order-md-2 order-first float-right pb-5 ml-5">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <div class="float-right">
                             <a href="{{ route('ideas/add/new') }}" class="btn btn-outline-success"><i class="bi bi-plus"></i>
@@ -27,16 +44,35 @@
                             
                          </div>
                     </nav>
-                </div>
+                </div>--}}
                 
             </div>
         </div>
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    Log Datatable
+                   Ideas Previews
                 </div>
-                <div class="card-body">
+             <div class="container">
+                <div class="row">
+                    @foreach ($ideas as $key => $item)
+                    
+                    <div class="col-6 col-md-6 ">
+                        <a href="{{ route('read', $item->title) }}">
+                        <div class="card bg-col">
+                            <div class="card-body">
+                                <h5>{{ $item->title }}</h5>
+                               <p> {{ Str::words($item->descriptions, '25') }}</p>
+                               <p class="sign"><span>Posted By: <br> {{ $item->posted_by }}</span>
+                            </div>
+                          </div>
+                        </a>
+                    </div>
+                   
+                  @endforeach
+                </div>
+             </div>
+                {{-- <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
@@ -62,7 +98,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+                </div> --}}
             </div>
         </section>
     </div>
@@ -73,7 +109,7 @@
             </div>
             <div class="float-end">
                 <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                href="#">Group 5</a></p>
+                href="#">Group 9</a></p>
             </div>
         </div>
     </footer>
