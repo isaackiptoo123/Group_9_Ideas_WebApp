@@ -1,2 +1,2 @@
 ##About the project
-<p></p>
+<p>This project is about investmet ideas which are made available for clients through the RM </p>
