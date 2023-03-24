@@ -50,30 +50,25 @@
                     </div>
                 </li>
                     {{-- <li class="sidebar-title">Page &amp; Controller</li> --}}
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link active'>
+                   
+                    <li class="sidebar-item">
+                        <a href="{{ route('ideas') }}" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
                             <span>Briefing Ideas</span>
                         </a>
-                        <ul class="submenu">
-                            <li class="submenu-item active">
-                                <a href="{{ route('ideas') }}">Enter Ideas</a>
-                            </li>
-                            {{-- <li class="submenu-item">
-                                <a href="{{ route('userManagement') }}">User Control</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="{{ route('activity/log') }}">User Activity Log</a>
-                            </li>
-                            <li class="submenu-item">
-                                <a href="{{ route('activity/login/logout') }}">Activity Log</a>
-                            </li> --}}
-                        </ul>
+                      
                     </li>
-                    <li class="sidebar-item">
+                    {{-- <li class="sidebar-item">
                         <a href="/add_Admin" class='sidebar-link'>
                             <i class="bi bi-people"></i>
                             <span>Add Admins</span>
+                        </a>
+                      
+                    </li> --}}
+                    <li class="sidebar-item">
+                        <a href="{{ route('allusers') }}" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>All Users</span>
                         </a>
                       
                     </li>
@@ -86,6 +81,13 @@
                       
                     </li>
                 @endif
+
+                <li class="sidebar-item">
+                    <a href="/profile_user" class='sidebar-link'>
+                        <i class="bi bi-person"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
                 
                 <li class="sidebar-item">
                     <a href="{{ route('change/password') }}" class='sidebar-link'>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.usermanagement')
+@extends('sidebar.user_activity_log')
 @endsection
 @section('content')
 <div id="main">
@@ -41,129 +41,37 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">User View Detial</h4>
+                    <h4 class="card-title">All Users Details</h4>
                 </div>
-                <div class="card-content">
-                    <div class="card-body">
-                        <form class="form form-horizontal" action="{{ route('update') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $data[0]->id }}">
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Full Name</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Name" id="first-name-icon" name="fullName" value="{{ $data[0]->name }}">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-person"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label>Photo</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group has-icon-lefts">
-                                            <div class="position-relative">
-                                                <input type="file" class="form-control"
-                                                placeholder="Name" id="first-name-icon" name="image"/>
-                                                <div class="form-control-icon avatar avatar.avatar-im">
-                                                    <img src="{{ URL::to('/images/'. $data[0]->avatar) }}">
-                                                </div>
-                                                <input type="hidden" name="hidden_image" value="{{ $data[0]->avatar }}">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label>Email Address</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="email" class="form-control"
-                                                    placeholder="Email" id="first-name-icon" name="email" value="{{ $data[0]->email }}">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-envelope"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Mobile Number</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="number" class="form-control"
-                                                    placeholder="Mobile" name="phone_number" value="{{ $data[0]->phone_number }}">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-phone"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-                                    <div class="col-md-4">
-                                        <label>Status</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group position-relative has-icon-left mb-4">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" name="status" id="status">
-                                                    <option value="{{ $data[0]->status }}" {{ ( $data[0]->status == $data[0]->status) ? 'selected' : ''}}> 
-                                                        {{ $data[0]->status }}
-                                                    </option>
-                                                    @foreach ($userStatus as $key => $value)
-                                                    <option value="{{ $value->type_name }}"> {{ $value->type_name }}</option>
-                                                    @endforeach  
-                                                </select>
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-bag-check"></i>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-4">
-                                        <label>Role Name</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group position-relative has-icon-left mb-4">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" name="role_name" id="role_name">
-                                                    <option value="{{ $data[0]->role_name }}" {{ ( $data[0]->role_name == $data[0]->role_name) ? 'selected' : ''}}> 
-                                                        {{ $data[0]->role_name }}
-                                                    </option>
-                                                    @foreach ($roleName as $key => $value)
-                                                    <option value="{{ $value->role_type }}"> {{ $value->role_type }}</option>
-                                                    @endforeach  
-                                                </select>
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-bag-check"></i>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 d-flex justify-content-end">
-                                        <button type="submit"
-                                            class="btn btn-primary me-1 mb-1">Update</button>
-                                        <a  href="{{ route('userManagement') }}"
-                                            class="btn btn-light-secondary me-1 mb-1">Back</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+               
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>S/NO</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Role</th>
+                                <th>Topic</th>                               
+                                
+                               
+                            </tr>    
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $key => $item)
+                                <tr>
+                                    <td>{{ ++$key }}</td>                                    
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->phone_number }}</td>
+                                    <td>{{ $item->role_name }}</td>
+                                    <td>{{ $item->ideas }}</td>
+                                    
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+               
             </div>
         </div>
     </div>
