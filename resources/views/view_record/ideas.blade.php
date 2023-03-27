@@ -16,7 +16,7 @@
     .bg-col .sign{
         float: right;
         font-size: 10px;
-        font-style: italic;
+        font-style: bold;
     }
 </style>
 
