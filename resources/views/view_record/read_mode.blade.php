@@ -57,7 +57,12 @@
                                 <h5>{{ $item->title }}</h5>
                                <p> {{ $item->descriptions }}</p>
                                <p class="sign"><span>Posted By: <br> {{ $item->posted_by }}</span></p>
-                               
+                                <p><span>
+                                   
+                                    <a href="{{ route('likes', $item->id) }}">Like<i class="bi bi-hand-thumbs-up"></i> {{ $item->likes }}</a> 
+                                    <a href="{{ route('unlikes', $item->id) }}">Unlike<i class="bi bi-hand-thumbs-down mr-3"></i>{{ $item->unlikes }}</a>
+                                </span>
+                            </p>
                             </div>
                           </div>
                         

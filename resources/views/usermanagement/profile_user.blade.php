@@ -59,22 +59,14 @@
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon1">Name</span>
                                                     <input type="text" class="form-control" name="name" value="{{ $users->name }}"
-<<<<<<< HEAD
                                                         aria-label="Username" aria-describedby="basic-addon1" required>
-=======
-                                                        aria-label="Username" aria-describedby="basic-addon1">
->>>>>>> a7e9790cff60eb638e3d1d63cbfe55e37d1561c0
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 mb-1">
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon1">Email</span>
                                                     <input type="text" class="form-control" name="email" value="{{ $users->email }}"
-<<<<<<< HEAD
                                                         aria-label="Username" aria-describedby="basic-addon1" required>
-=======
-                                                        aria-label="Username" aria-describedby="basic-addon1">
->>>>>>> a7e9790cff60eb638e3d1d63cbfe55e37d1561c0
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 mb-1">
@@ -88,21 +80,13 @@
                                                 <div class="input-group mb-3">
                                                     <span class="input-group-text" id="basic-addon1">Phone Number</span>
                                                     <input type="number" class="form-control" name="phone" value="{{ $users->phone_number }}"
-<<<<<<< HEAD
                                                         aria-label="Username" aria-describedby="basic-addon1" required>
-=======
-                                                        aria-label="Username" aria-describedby="basic-addon1">
->>>>>>> a7e9790cff60eb638e3d1d63cbfe55e37d1561c0
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 mb-1">
                                             <div class="form-group position-relative has-icon-left mb-4">
                                                 <fieldset class="form-group">
-<<<<<<< HEAD
                                                     <select class="form-select @error('role_name') is-invalid @enderror" name="ideas" id="investment" required>
-=======
-                                                    <select class="form-select @error('role_name') is-invalid @enderror" name="ideas" id="investment">
->>>>>>> a7e9790cff60eb638e3d1d63cbfe55e37d1561c0
                                                         <option selected value="{{ $users->ideas }}">{{ $users->ideas }}</option>
                                                         <option value="Real Estate">Real Estate</option>
                                                         <option value="Equities">Equities</option>

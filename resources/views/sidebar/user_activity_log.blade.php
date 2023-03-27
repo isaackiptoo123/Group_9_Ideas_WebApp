@@ -37,8 +37,8 @@
                             @if (Auth::user()->role_name=='Super Admin')
                                 <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
                                 <hr>
-                                <span>Role Name:</span>
-                                <span class="badge bg-info">Super Admin</span>
+                                <span>Role:</span>
+                                <span class="badge bg-info">Relational Manager</span>
                             @endif
                             @if (Auth::user()->role_name=='Normal User')
                                 <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>

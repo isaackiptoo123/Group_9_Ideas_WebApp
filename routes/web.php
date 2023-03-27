@@ -44,6 +44,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('Group/new_ideas', [App\Http\Controllers\FormController::class, 'ideas'])->middleware('auth')->name('ideas');
 Route::get('/my_topics', [App\Http\Controllers\FormController::class, 'related'])->middleware('auth')->name('related');
 Route::get('/reading_mode/{id}', [App\Http\Controllers\FormController::class, 'read'])->middleware('auth')->name('read');
+Route::get('/likes/{id}', [App\Http\Controllers\RatingController::class, 'likes'])->middleware('auth')->name('likes');
+Route::get('/unlikes/{id}', [App\Http\Controllers\RatingController::class, 'unlikes'])->middleware('auth')->name('unlikes');
 
 Route::get('/add_Admin', [App\Http\Controllers\Auth\RegisterController::class, 'newadmin'])->name('newadmin');
 Route::post('/new_admin', [App\Http\Controllers\Auth\RegisterController::class, 'storeAdmin'])->name('storeAdmin');
