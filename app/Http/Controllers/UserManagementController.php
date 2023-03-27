@@ -29,6 +29,11 @@ class UserManagementController extends Controller
         }
         
     }
+
+    public function allusers(){
+        $data = DB::table('users')->get();
+        return view('usermanagement.view_users',compact('data'));
+    }
     // view detail 
     public function viewDetail($id)
     {  
@@ -68,7 +73,21 @@ class UserManagementController extends Controller
     // profile user
     public function profile()
     {
-        return view('usermanagement.profile_user');
+        $id=Auth::user()->id;
+        $users= User::find($id);
+        return view('usermanagement.profile_user', compact('users'));
+    }
+    public function profileStore(Request $request, $id){
+        $user = User::find($id);
+        $user->name         = $request->name;       
+        $user->email        = $request->email;
+        $user->phone_number = $request->phone;
+        $user->birth_date    = $request->birth_date;  
+        $user->ideas    = $request->ideas;       
+        $user->update();
+
+        Toastr::success('Create new account successfully :)','Success');
+        return redirect()->back(); 
     }
    
     // add new user

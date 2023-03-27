@@ -71,11 +71,12 @@ Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController
 
 // ----------------------------- user profile ------------------------------//
 Route::get('profile_user', [App\Http\Controllers\UserManagementController::class, 'profile'])->name('profile_user');
-Route::post('profile_user/store', [App\Http\Controllers\UserManagementController::class, 'profileStore'])->name('profile_user/store');
+Route::PUT('profile_user/store/{id}', [App\Http\Controllers\UserManagementController::class, 'profileStore'])->name('profile_user/store');
 
 // ----------------------------- user userManagement -----------------------//
 
 //Route::get('userManagement/new_ideas', [App\Http\Controllers\UserManagementController::class, 'ideas'])->middleware('auth')->name('ideas');
+Route::get('AllUsers', [App\Http\Controllers\UserManagementController::class, 'allusers'])->middleware('auth')->name('allusers');
 Route::get('userManagement', [App\Http\Controllers\UserManagementController::class, 'index'])->middleware('auth')->name('userManagement');
 Route::get('user/add/new', [App\Http\Controllers\UserManagementController::class, 'addNewUser'])->middleware('auth')->name('user/add/new');
 Route::post('user/add/save', [App\Http\Controllers\UserManagementController::class, 'addNewUserSave'])->name('user/add/save');

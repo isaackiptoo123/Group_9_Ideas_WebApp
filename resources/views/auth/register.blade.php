@@ -53,7 +53,7 @@
 
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label>Date of Birth</label>
-                            <input type="date" class="form-control form-control-lg @error('birth_date') is-invalid @enderror" name="birth_date" required max="@php echo Date("Y-m-d") @endphp" >
+                            <input type="date" class="form-control form-control-lg @error('birth_date') is-invalid @enderror" name="birth_date" >
                             <div class="form-control-icon">
                                 <i class="bi bi-calendar-date"></i>
                             </div>
