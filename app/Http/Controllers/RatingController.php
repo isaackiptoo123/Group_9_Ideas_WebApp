@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Idea;
 use App\Models\ratings;
+<<<<<<< HEAD
 use App\Models\Check;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -121,3 +122,12 @@ public function unlikes($id){
     }
 }
 }
+=======
+
+class RatingController extends Controller
+{
+    public function index(){
+        
+    }
+}
+>>>>>>> a7e9790cff60eb638e3d1d63cbfe55e37d1561c0
