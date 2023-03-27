@@ -18,6 +18,9 @@
         font-size: 10px;
         font-style: italic;
     }
+    p a{
+        color: red;
+    }
 </style>
 
 <div id="main">
@@ -34,17 +37,7 @@
                     {{-- <p class="text-subtitle text-muted">For Ideas Briefings</p> --}}
                 </div>
                     
-                
-                {{--<div class="col-12 col-md-6 order-md-2 order-first float-right pb-5 ml-5">
-                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                        <div class="float-right">
-                            <a href="{{ route('ideas/add/new') }}" class="btn btn-outline-success"><i class="bi bi-plus"></i>
-                             Add New
-                            </a>
-                            
-                         </div>
-                    </nav>
-                </div>--}}
+           
                 
             </div>
         </div>
@@ -63,7 +56,8 @@
                             <div class="card-body">
                                 <h5>{{ $item->title }}</h5>
                                <p> {{ $item->descriptions }}</p>
-                               <p class="sign"><span>Posted By: <br> {{ $item->posted_by }}</span>
+                               <p class="sign"><span>Posted By: <br> {{ $item->posted_by }}</span></p>
+                               
                             </div>
                           </div>
                         
