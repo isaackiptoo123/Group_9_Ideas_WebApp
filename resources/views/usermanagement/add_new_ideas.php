@@ -60,8 +60,8 @@
                             <fieldset class="form-group">
                                 <select class="form-select @error('role_name') is-invalid @enderror" name="role_name" id="role_name">
                                     <option selected disabled>Select Role Name</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="Super Admin">Super Admin</option>
+                                    <option value="RM">RM</option>
+                                    <option value="Idea Creator">Idea Creator</option>
                                     <option value="Normal User">Normal User</option>
                                 </select>
                                 <div class="form-control-icon">
